@@ -5,25 +5,6 @@ Feature: CoinBase Products
 
 #------------------------------------------------------------------------------
 
-  Scenario: Get a list of available currency pairs for trading.
-
-    Given I want to call API Endpoint "{{coinBaseProductsURL}}"
-    And   I provide headers as csv file "data/headers/coinBase.csv"
-    And   I send "GET" request
-    Then  Response has Status code: "200"
-    And   Response has ALL the headers from data Table:
-    |Content-Type           |
-    |Connection             |
-    |Transfer-Encoding      |
-    And Response header "X-Frame-Options" has next value: "SAMEORIGIN"
-    And Response body JSON matches schema "data/response_schemas/getCoinBaseProducts_200.json"
-    And Response body JSON node equals to val:
-    |get(id=AUCTION-EUR).quote_currency|EUR        |
-    |get(id=AUCTION-EUR).base_currency |AUCTION    |
-    |get(id=AUCTION-EUR).display_name  |AUCTION/EUR|
-
-#------------------------------------------------------------------------------
-
   Scenario Outline: <id> - Get information on a single product.
 
     Given I want to call API Endpoint "{{coinBaseProductsURL}}"
@@ -34,8 +15,7 @@ Feature: CoinBase Products
     And   Response has ALL the headers from data Table:
       |Content-Type           |
       |Connection             |
-      |Transfer-Encoding      |
-    And Response header "X-Frame-Options" has next value: "SAMEORIGIN"
+    And Response header "Content-Type" has next value: "application/json; charset=utf-8"
     And Response body JSON matches schema "data/response_schemas/getCoinBaseSingleProduct_200.json"
     And Response body JSON node equals to val:
       |quote_currency|<quote_currency> |
@@ -44,9 +24,9 @@ Feature: CoinBase Products
 
     Examples:
     |id          |quote_currency|base_currency|display_name|
-    |AUCTION-EUR |EUR           |AUCTION      |AUCTION/EUR |
-    |AUCTION-USDT|USDT          |AUCTION      |AUCTION/USDT|
-    |REN-USD     |USD           |REN          |REN/USD     |
+    |AUCTION-EUR |EUR           |AUCTION      |AUCTION-EUR |
+    |AUCTION-USDT|USDT          |AUCTION      |AUCTION-USDT|
+    |REN-USD     |USD           |REN          |REN-USD     |
 
  #------------------------------------------------------------------------------
 

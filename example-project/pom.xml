@@ -58,7 +58,8 @@
 
             <plugin>
                 <groupId>com.trivago.rta</groupId>
-                <artifactId>cluecumber-report-plugin</artifactId>
+                <artifactId>cluecumber-maven</artifactId>
+                <version>3.9.0</version>
                 <executions>
                     <execution>
                         <id>report</id>
@@ -85,10 +86,18 @@
 
         <!--  watchmen  -->
 
+        <!-- https://mvnrepository.com/artifact/io.github.ally-financial/watchmen -->
         <dependency>
             <groupId>io.github.ally-financial</groupId>
             <artifactId>watchmen</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.0-RELEASE</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.trivago.rta/cluecumber-report-plugin -->
+        <dependency>
+            <groupId>com.trivago.rta</groupId>
+            <artifactId>cluecumber-report-plugin</artifactId>
+            <version>2.9.4</version>
         </dependency>
 
 

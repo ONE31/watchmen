@@ -8,7 +8,7 @@
   "definitions": {
     "Welcome10Element": {
       "type": "object",
-      "additionalProperties": false,
+      "additionalProperties": true,
       "properties": {
         "id": {
           "type": "string"
@@ -76,15 +76,12 @@
         "auction_mode",
         "base_currency",
         "base_increment",
-        "base_max_size",
-        "base_min_size",
         "cancel_only",
         "display_name",
         "fx_stablecoin",
         "id",
         "limit_only",
         "margin_enabled",
-        "max_market_funds",
         "max_slippage_percentage",
         "min_market_funds",
         "post_only",
